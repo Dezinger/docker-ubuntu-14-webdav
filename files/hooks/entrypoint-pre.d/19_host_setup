@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export LISTENPORT=${LISTENPORT:-80}
+export SERVER_NAME=${SERVER_NAME:-"webdav.local"}
+
+envsubst '${LISTENPORT} ${SERVER_NAME}' > /etc/apache2/sites-available/webdav.conf < /etc/apache2/sites-available/webdav.conf.templ
+
+a2ensite webdav

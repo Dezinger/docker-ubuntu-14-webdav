@@ -1,0 +1,15 @@
+<VirtualHost *:${LISTENPORT}>
+    DocumentRoot /var/webdav
+    ServerName ${SERVER_NAME}
+    ServerAlias ${SERVER_NAME}
+
+    KeepAliveTimeout 15
+    DefaultType text/plain
+</VirtualHost>
+
+<Directory "/var/webdav">
+    Require all granted
+    #Options FollowSymLinks
+    Dav On
+    AllowOverride All
+</Directory>
